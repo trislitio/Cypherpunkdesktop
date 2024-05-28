@@ -25,6 +25,11 @@ export const bookmarks: Bookmark[] = [
     name: "Index of /",
     url: "http://localhost/",
   },
+  {
+    icon: "/System/Icons/Favicons/dir.webp",
+    name: "Root",
+    url: "http://localhost/documents",
+  },
   DINO_GAME,
   {
     icon: "/System/Icons/Favicons/google.webp",
