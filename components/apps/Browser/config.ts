@@ -44,7 +44,7 @@ export const bookmarks: Bookmark[] = [
   {
     icon: "/System/Icons/Favicons/archive.webp",
     name: "Internet Archive",
-    url: "https://archive.org/",
+    url: "https://trislit.io/",
   },
   {
     icon: "/System/Icons/Favicons/win96.webp",
