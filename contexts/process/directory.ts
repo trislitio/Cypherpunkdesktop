@@ -121,6 +121,11 @@ const directory: Processes = {
     lockAspectRatio: true,
     title: "js-dos v7",
   },
+  Login: {
+    Component: dynamic(() => import("components/apps/Login")),
+    icon: "/System/Icons/marked.webp", // Use an appropriate icon
+    title: "User Login",
+  },
   Marked: {
     Component: dynamic(() => import("components/apps/Marked")),
     backgroundColor: "#FFF",

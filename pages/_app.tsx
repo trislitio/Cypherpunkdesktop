@@ -1,3 +1,5 @@
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Base } from "@thirdweb-dev/chains";
 import { type AppProps } from "next/app";
 import { ErrorBoundary } from "components/pages/ErrorBoundary";
 import Metadata from "components/pages/Metadata";
@@ -9,22 +11,27 @@ import { SessionProvider } from "contexts/session";
 import { ViewportProvider } from "contexts/viewport";
 
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
-  <ViewportProvider>
-    <ProcessProvider>
-      <FileSystemProvider>
-        <SessionProvider>
-          <ErrorBoundary>
-            <Metadata />
-            <StyledApp>
-              <MenuProvider>
-                <Component {...pageProps} />
-              </MenuProvider>
-            </StyledApp>
-          </ErrorBoundary>
-        </SessionProvider>
-      </FileSystemProvider>
-    </ProcessProvider>
-  </ViewportProvider>
+  <ThirdwebProvider
+    clientId={process.env.NEXT_PUBLIC_THIRDWEB_API_KEY}
+    supportedChains={[Base]}
+  >
+    <ViewportProvider>
+      <ProcessProvider>
+        <FileSystemProvider>
+          <SessionProvider>
+            <ErrorBoundary>
+              <Metadata />
+              <StyledApp>
+                <MenuProvider>
+                  <Component {...pageProps} />
+                </MenuProvider>
+              </StyledApp>
+            </ErrorBoundary>
+          </SessionProvider>
+        </FileSystemProvider>
+      </ProcessProvider>
+    </ViewportProvider>
+  </ThirdwebProvider>
 );
 
 export default App;
