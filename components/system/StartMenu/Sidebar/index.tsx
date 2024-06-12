@@ -1,5 +1,5 @@
 import { useTheme } from "styled-components";
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState, type FC } from "react";
 import SidebarButton, {
   type SidebarButtons,
 } from "components/system/StartMenu/Sidebar/SidebarButton";
@@ -17,6 +17,8 @@ import { useProcesses } from "contexts/process";
 import { useSession } from "contexts/session";
 import { HOME, TASKBAR_HEIGHT } from "utils/constants";
 import { haltEvent, viewHeight } from "utils/functions";
+// Import the custom connect button
+// Import the noop function
 
 type SidebarGroupProps = {
   sidebarButtons: SidebarButtons;
@@ -65,7 +67,7 @@ const Sidebar: FC<SidebarProps> = ({ height }) => {
     [sizes.startMenu.sideBar.width, vh]
   );
 
-  const bottomButtons = [
+  const bottomButtons: SidebarButtons = [
     buttonAreaCount > 3
       ? {
           action: () =>
