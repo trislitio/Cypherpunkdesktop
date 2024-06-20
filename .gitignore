@@ -3,6 +3,7 @@
 certificates
 out
 
+.env
 node_modules
 
 test-results
