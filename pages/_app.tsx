@@ -6,7 +6,6 @@ import { ErrorBoundary } from "components/pages/ErrorBoundary";
 import Metadata from "components/pages/Metadata";
 import StyledApp from "components/pages/StyledApp";
 import SplashScreen from "components/system/ThirdWeb/SplashScreen";
-import { client } from "components/system/ThirdWeb/thirdWebClient";
 import { FileSystemProvider } from "contexts/fileSystem";
 import { MenuProvider } from "contexts/menu";
 import { ProcessProvider } from "contexts/process";
@@ -17,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <ThirdwebProvider client={client}>
+    <ThirdwebProvider>
       {isAuthenticated ? (
         <ViewportProvider>
           <ProcessProvider>
