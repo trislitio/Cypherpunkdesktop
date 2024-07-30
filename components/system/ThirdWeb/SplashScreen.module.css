@@ -1,0 +1,19 @@
+/* src/components/system/ThirdWeb/SplashScreen.module.css */
+.splashScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}
+
+.connectButton {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
