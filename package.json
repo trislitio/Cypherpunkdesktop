@@ -1,12 +1,8 @@
 {
-  "name": "L33tDesktop",
+  "name": "l33tdesktop",
   "version": "1.0.0",
   "description": "Desktop environment in the browser",
-  "author": {
-    "name": "Trislit.io",
-    "email": "Trislit@trislit.io",
-    "url": "https://trislit.io"
-  },
+  "author": "Trislit.io <Trislit@trislit.io> (https://trislit.io)",
   "license": "MIT",
   "browserslist": [
     "defaults and supports es6 and not ie 11 and >1%"
@@ -41,8 +37,9 @@
     "@panzoom/panzoom": "^4.5.1",
     "@prettier/plugin-xml": "^3.4.1",
     "@wasmer/wasm-transformer": "^0.12.0",
+    "alchemy-sdk": "^3.3.1",
     "ani-cursor": "^0.0.5",
-    "browserfs": "https://github.com/jvilk/BrowserFS.git#a96aa2d",
+    "browserfs": "git+https://github.com/jvilk/BrowserFS.git#a96aa2d",
     "butterchurn-presets": "^3.0.0-beta.4",
     "decode-ico": "^0.4.1",
     "dompurify": "^3.1.5",
@@ -74,7 +71,7 @@
     "rtf.js": "^3.0.9",
     "styled-components": "^6.1.11",
     "thirdweb": "^5.29.6",
-    "utif": "https://github.com/photopea/UTIF.js",
+    "utif": "git+https://github.com/photopea/UTIF.js.git",
     "wasi-js": "^1.7.3"
   },
   "devDependencies": {
@@ -145,5 +142,6 @@
     "webamp": "^1.5.0",
     "xlsx": "^0.18.5",
     "xterm": "^5.3.0"
-  }
+  },
+  "main": "jest.config.js"
 }
