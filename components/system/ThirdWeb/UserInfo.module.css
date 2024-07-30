@@ -1,0 +1,9 @@
+/* src/styles/UserInfo.module.css */
+.userInfoWrapper {
+  position: fixed;
+  bottom: 40px;
+  left: 90%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  /* Additional styling as needed */
+}

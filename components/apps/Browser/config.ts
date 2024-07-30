@@ -25,6 +25,11 @@ export const bookmarks: Bookmark[] = [
     name: "Index of /",
     url: "http://localhost/",
   },
+  {
+    icon: "/System/Icons/Favicons/dir.webp",
+    name: "Root",
+    url: "http://localhost/documents",
+  },
   DINO_GAME,
   {
     icon: "/System/Icons/Favicons/google.webp",
@@ -39,7 +44,7 @@ export const bookmarks: Bookmark[] = [
   {
     icon: "/System/Icons/Favicons/archive.webp",
     name: "Internet Archive",
-    url: "https://archive.org/",
+    url: "https://trislit.io/",
   },
   {
     icon: "/System/Icons/Favicons/win96.webp",
