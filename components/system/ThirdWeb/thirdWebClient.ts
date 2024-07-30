@@ -1,6 +1,6 @@
 // components/system/ThirdWeb/thirdWebClient.ts
 import { createThirdwebClient } from "thirdweb";
-import { createWallet, walletConnect, inAppWallet } from "thirdweb/wallets";
+import { createWallet, inAppWallet } from "thirdweb/wallets";
 
 export const clientId = process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID;
 if (!clientId) {
@@ -14,7 +14,6 @@ export const client = createThirdwebClient({
 export const wallets = [
   createWallet("io.metamask"),
   createWallet("com.coinbase.wallet"),
-  walletConnect(),
   inAppWallet({
     auth: {
       options: ["email", "google", "apple", "facebook", "phone"],
