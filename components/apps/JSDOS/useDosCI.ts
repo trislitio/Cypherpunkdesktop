@@ -70,30 +70,27 @@ const useDosCI = (
 
       const savePath = join(SAVE_PATH, saveName);
 
-      if (
-        dosCI[bundleUrl] !== undefined &&
-        (await writeFile(
-          savePath,
-          Buffer.from((await dosCI[bundleUrl].persist()) || []),
-          true
-        ))
-      ) {
-        if (screenshot) {
-          const iconCacheRootPath = join(ICON_CACHE, SAVE_PATH);
-          const iconCachePath = join(
-            ICON_CACHE,
-            `${savePath}${ICON_CACHE_EXTENSION}`
-          );
+      const commandInterface = dosCI[bundleUrl];
+      if (commandInterface !== undefined) {
+        const persistedData = await commandInterface.persist();
+        if (await writeFile(savePath, Buffer.from(persistedData || []), true)) {
+          if (screenshot) {
+            const iconCacheRootPath = join(ICON_CACHE, SAVE_PATH);
+            const iconCachePath = join(
+              ICON_CACHE,
+              `${savePath}${ICON_CACHE_EXTENSION}`
+            );
 
-          if (!(await exists(iconCacheRootPath))) {
-            await mkdirRecursive(iconCacheRootPath);
-            updateFolder(dirname(SAVE_PATH));
+            if (!(await exists(iconCacheRootPath))) {
+              await mkdirRecursive(iconCacheRootPath);
+              updateFolder(dirname(SAVE_PATH));
+            }
+
+            await writeFile(iconCachePath, screenshot, true);
           }
 
-          await writeFile(iconCachePath, screenshot, true);
+          updateFolder(SAVE_PATH, saveName);
         }
-
-        updateFolder(SAVE_PATH, saveName);
       }
 
       if (closeInstance) dosInstance?.stop();

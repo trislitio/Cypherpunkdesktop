@@ -351,7 +351,7 @@ export const getNip05Domain = async (
     if (verifiedNip05Addresses[pubkey] === domain) return domain;
     if (
       typeof verifiedNip05Addresses[pubkey] === "number" &&
-      !TIMEOUT_ERRORS.has(verifiedNip05Addresses[pubkey])
+      !TIMEOUT_ERRORS.has(verifiedNip05Addresses[pubkey] as number)
     ) {
       return "";
     }
