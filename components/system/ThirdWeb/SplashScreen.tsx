@@ -28,12 +28,13 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onConnect }) => {
         }
 
         const accountDetails = wallet.getAccount();
-        // console.log("Account Details:", accountDetails);
+        if (!accountDetails) {
+          throw new Error("Account details not found.");
+        }
 
         setWalletAddress(accountDetails.address);
         // console.log("Wallet Address:", accountDetails.address);
 
-        // Assuming hasAccess is a function that checks for required NFTs
         const access = await hasAccess(accountDetails.address);
         if (access) {
           onConnect();

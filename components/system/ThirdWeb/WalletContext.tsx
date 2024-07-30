@@ -1,22 +1,31 @@
 /* eslint-disable import/no-duplicates */
 import type React from "react";
-import { createContext, useState, useContext, useMemo } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  type ReactNode,
+} from "react";
 import { type Wallet } from "thirdweb/wallets";
 /* eslint-enable import/no-duplicates */
 // Define the interface for the context properties
+
 interface WalletContextProps {
-  setWallet: (wallet: Wallet | null) => void;
-  wallet: Wallet | null;
+  setWallet: React.Dispatch<React.SetStateAction<Wallet | undefined>>;
+  wallet: Wallet | undefined;
 }
 
-// Create the context with an undefined default value
+interface WalletProviderProps {
+  children: ReactNode;
+}
+
 const WalletContext = createContext<WalletContextProps | undefined>(undefined);
 
-export const WalletProvider: React.FC = ({ children }) => {
-  // Initialize the wallet state with null by default
-  const [wallet, setWallet] = useState<Wallet | null>();
+export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
+  const [wallet, setWallet] = useState<Wallet | undefined>();
 
-  // Memoize the context value to avoid unnecessary re-renders
+  // Use useMemo to prevent unnecessary re-renders
   const contextValue = useMemo(() => ({ setWallet, wallet }), [wallet]);
 
   return (
@@ -26,7 +35,6 @@ export const WalletProvider: React.FC = ({ children }) => {
   );
 };
 
-// Define the return type for the useWallet hook
 export const useWallet = (): WalletContextProps => {
   const context = useContext(WalletContext);
   if (!context) {

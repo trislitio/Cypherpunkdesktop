@@ -17,10 +17,6 @@ import { WalletProvider } from "components/system/ThirdWeb/WalletContext";
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleDisconnect = () => {
-    setIsAuthenticated(false);
-  };
-
   return (
     <ThirdwebProvider>
       <WalletProvider>
@@ -43,10 +39,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
             </ProcessProvider>
           </ViewportProvider>
         ) : (
-          <SplashScreen
-            onConnect={() => setIsAuthenticated(true)}
-            onDisconnect={handleDisconnect}
-          />
+          <SplashScreen onConnect={() => setIsAuthenticated(true)} />
         )}
       </WalletProvider>
     </ThirdwebProvider>
