@@ -121,11 +121,6 @@ const directory: Processes = {
     lockAspectRatio: true,
     title: "js-dos v7",
   },
-  Login: {
-    Component: dynamic(() => import("components/apps/Login")),
-    icon: "/System/Icons/marked.webp", // Use an appropriate icon
-    title: "User Login",
-  },
   Marked: {
     Component: dynamic(() => import("components/apps/Marked")),
     backgroundColor: "#FFF",
@@ -279,19 +274,6 @@ const directory: Processes = {
     lockAspectRatio: true,
     singleton: true,
     title: "Space Cadet",
-  },
-  StableDiffusion: {
-    Component: dynamic(() => import("components/apps/StableDiffusion")),
-    allowResizing: false,
-    backgroundColor: "rgb(235, 251, 247)",
-    defaultSize: {
-      height: 600,
-      width: 544,
-    },
-    icon: "/System/Icons/stablediffusion.webp",
-    lockAspectRatio: true,
-    singleton: true,
-    title: "Stable Diffusion",
   },
   Terminal: {
     Component: dynamic(() => import("components/apps/Terminal")),
